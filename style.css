@@ -1,0 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Edu+QLD+Hand:wght@400..700&display=swap');
+h1{
+    text-align: center;
+    font-family: "Edu QLD Hand";
+}
+#message{
+    text-align: center;
+    font-family: "Edu QLD Hand";
+}
+img{
+    margin-left: 300px;
+}
