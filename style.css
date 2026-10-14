@@ -11,3 +11,34 @@ h1{
 img{
     margin-left: 300px;
 }
+#Hidden-word{
+    font-size: 50px;
+    text-align: center;
+    font-family: "Edu QLD Hand";
+    margin-top: -110px;
+}
+#guesses-number{
+    font-family: "Edu QLD Hand";
+    font-size: 20px;
+    text-align: left;
+}
+.letters{
+    text-align: center;
+   
+}
+button{
+    background-color: rgb(220, 73, 60);
+    width: 70px;
+    height: 50px;
+    border-radius: 5px;
+    color:#ffffff;
+    border: none;
+    font-size: 16px;
+    margin: 5px 5px 5px 5px;
+    transition: background-color .4s;
+    font-family: "Edu QLD Hand";
+}
+button:hover{
+    background-color: rgb(126, 4, 16);
+cursor: pointer;
+}
