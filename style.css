@@ -1,19 +1,23 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Edu+QLD+Hand:wght@400..700&display=swap');
 h1{
-    text-align: center;
     font-family: "Edu QLD Hand";
     color: rgb(92, 65, 92);
+    font-size: 50px;
+   text-align: center;
 }
 #message{
     text-align: center;
     font-family: "Edu QLD Hand";
     color: rgb(92, 65, 92);
+    font-size: 30px;
+
 }
 #Guess{
     text-align: center;
     font-family: "Edu QLD Hand";
     color: rgb(92, 65, 92);
+    font-size: 30px;
 }
 img{
     margin-left: 300px;
@@ -29,9 +33,10 @@ img{
 }
 #guesses-number{
     font-family: "Edu QLD Hand";
-    font-size: 20px;
+    font-size: 25px;
     text-align: left;
     color: rgb(92, 65, 92);
+    margin-left: 10px;
 }
 .letters{
    text-align: center;
@@ -54,9 +59,12 @@ button:hover{
 cursor: pointer;
 }
 body{
-    background-color: rgb(240, 237, 190);
+    background-color: rgb(247, 217, 248);
 }
 #choosed-letters{
     font-family: "Edu QLD Hand";
     font-size: 18px;
+}
+body{
+     border: 2px rgb(60, 37, 60) solid;
 }
