@@ -103,3 +103,75 @@ cursor: pointer;}
 #Next:hover{
     background-color: rgb(148, 102, 162);
 cursor: pointer;}
+
+@media (max-width: 767px){
+    h1 {
+        font-size: 30px;
+    }
+    #Guess {
+        font-size: 22px;
+    }
+    #message{
+         font-size: 22px;
+    }
+    #guesses-number{
+         font-size: 16px;
+    }
+    img {
+        margin-left: 10px;
+        width: 250px;
+        height: 300px;
+    }
+
+    .Hidden-word {
+        font-size: 38px;
+        margin-top: -80px;
+    }
+
+    .lett {
+        width: 35px;
+        height: 40px;
+        font-size: 16px;
+        margin: 3px;
+    }
+
+    #Reset, #Next {
+        width: 65px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1199px){
+       h1 {
+        font-size: 35px;
+    }
+    #Guess {
+        font-size: 27px;
+    }
+    #message{
+         font-size: 27px;
+    }
+    #guesses-number{
+         font-size: 18px;
+    }
+    img {
+        margin-left: 130px;
+        width: 250px;
+        height: 300px;
+    }
+
+    .Hidden-word {
+        font-size: 50px;
+        margin-top: -90px;
+    }
+
+    .lett {
+        width: 54px;
+        height: 47px;
+        font-size: 20px;
+        margin: 2px;
+    }
+
+
+}
+

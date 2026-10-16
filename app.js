@@ -14,7 +14,7 @@ console.log(WinMessageEl)
 console.log(ImageEl)
 console.log(MistakesEl)
 console.log(NextbtnEl)
-let winner = null
+let winner = true
 let HiddenWordLetters =[]
  HiddenWordLetters = RandomWords.map((Letters)=>{
    return Letters.split('')
@@ -22,7 +22,7 @@ let HiddenWordLetters =[]
 console.log(HiddenWordLetters)
 
 function init(){
-  winner = false
+  winner = true
   ImageEl.src = './hangman1.png'
   MistakesEl.textContent = 'Mistakes Remianing :  6'
   HiddenWord()
@@ -33,6 +33,7 @@ function init(){
 let Index = 0
 let randomword = ''
 let Guessedletter = []
+
 function HiddenWord(){
     randomword = RandomWords[Index]
     if(Index>= RandomWords.length){
@@ -41,6 +42,7 @@ function HiddenWord(){
 console.log(randomword)
 
 hiddenWordEl.textContent = ""
+Guessedletter = []
 for(let i=0;i<randomword.length;i++){
     Guessedletter.push('_')
 }
