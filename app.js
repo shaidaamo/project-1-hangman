@@ -22,6 +22,7 @@ let randomword = ''
 let Guessedletter = []
 let MistakesNo = 0
 
+
  HiddenWordLetters = RandomWords.map((Letters)=>{
    return Letters.split('')
 })
@@ -33,6 +34,7 @@ function init(){
   MistakesEl.textContent = 'Mistakes Remianing :  6'
   WinMessageEl.textContent =''
   MistakesNo = 0
+
   HiddenWord()
   IfWin() 
 }
@@ -59,6 +61,9 @@ for(let i=0;i< Guessedletter.length;i++){
 function Nextbtn(){
     if(winner === true){
         Index = Index + 1 
+        for(let Onebutton of lettersbtnEl){
+             Onebutton.style.visibility = 'visible'
+        }
         init()
     }
     return Index
@@ -69,25 +74,40 @@ hiddenWordEl.textContent =''
 function Choose(event){
     let letter = event.target.textContent
     let Correctlet = false
-
+if(MistakesNo === 6){
+    return
+}
     for(let i=0; i<randomword.length;i++){
         
             if(letter === randomword[i]){
-            Guessedletter[i] = letter
-            Correctlet = true
+                
+             Guessedletter[i] = letter
+             Correctlet = true
+             event.target.style.visibility = 'hidden'
+                   
         }
         
     }
+   
     hiddenWordEl.textContent=''
+    
+
     for(let i=0; i< Guessedletter.length;i++){
-        hiddenWordEl.textContent += Guessedletter[i] + ' '
+             
+     hiddenWordEl.textContent += Guessedletter[i] + ' '
+                    
     }
+    
+    
+    
     if(Correctlet===false){
         mistakes()
+    event.target.style.visibility = 'hidden'
     }
 
    
     IfWin()
+    
 }
 
 function IfWin(){
@@ -100,6 +120,7 @@ function IfWin(){
     if(winner === true){
         WinMessageEl.textContent = 'You Win! Press Next for the Next Word'
     }
+  
 
 }
 
@@ -112,14 +133,29 @@ function mistakes() {
     if(MistakesNo === 6){
         WinMessageEl.textContent = 'You Lost. Restart The Game to Try Again'
     }
+    return MistakesNo
 }
 
 function Restart(){
+    if(MistakesNo === 6){
+  winner = false
+  ImageEl.src = './hangman1.png'
+  MistakesEl.textContent = 'Mistakes Remianing :  6'
+  WinMessageEl.textContent =''
+  MistakesNo = 0
+for(let Onebutton of lettersbtnEl){
+             Onebutton.style.visibility = 'visible'
+        }
+  HiddenWord()
+  IfWin() 
+    }
+
 
 }
 
 init()
 NextbtnEl.addEventListener('click',Nextbtn)
+ResetbtnEl.addEventListener('click',Restart)
 for(let oneElement of lettersbtnEl){
     oneElement.addEventListener('click',Choose)
 }

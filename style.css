@@ -22,7 +22,7 @@ h1{
     font-size: 30px;
 }
 img{
-    margin-left: 300px;
+    margin-left: 200px;
     width: 300px;
     height: 400px;
 }
@@ -125,7 +125,7 @@ cursor: pointer;}
 
     .Hidden-word {
         font-size: 38px;
-        margin-top: -80px;
+        margin-top: -30px;
     }
 
     .lett {
@@ -155,14 +155,14 @@ cursor: pointer;}
          font-size: 20px;
     }
     img {
-        margin-left: 130px;
+        margin-left: 50px;
         width: 250px;
         height: 300px;
     }
 
     .Hidden-word {
         font-size: 50px;
-        margin-top: -90px;
+        margin-top: -30px;
     }
 
     .lett {
