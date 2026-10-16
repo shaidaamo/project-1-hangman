@@ -28,22 +28,25 @@ function init(){
   HiddenWord()
   IfWin()
   mistakes()
-  Choose()
-  IfWin()
-  mistakes()
+  
 }
 let Index = 0
-let randomword = 0
+let randomword = ''
+let Guessedletter = []
 function HiddenWord(){
     randomword = RandomWords[Index]
     if(Index>= RandomWords.length){
         Index=0;
     }
 console.log(randomword)
-hiddenWordEl.textContent =""
 
-for(let Ind of HiddenWordLetters[Index]){
-     hiddenWordEl.textContent += "_ "
+hiddenWordEl.textContent = ""
+for(let i=0;i<randomword.length;i++){
+    Guessedletter.push('_')
+}
+
+for(let i=0;i< Guessedletter.length;i++){
+     hiddenWordEl.textContent += Guessedletter[i] + ' '
 }
 
 }
@@ -55,9 +58,21 @@ function Nextbtn(){
     return Index
 }
 
+hiddenWordEl.textContent =''
+function Choose(event){
+    let letter = event.target.textContent
 
-function Choose(){
-
+    for(let i=0; i<randomword.length;i++){
+        
+            if(letter === randomword[i]){
+            Guessedletter[i] = letter
+        }
+        
+    }
+    hiddenWordEl.textContent=''
+    for(let i=0; i< Guessedletter.length;i++){
+        hiddenWordEl.textContent += Guessedletter[i] + ' '
+    }
     
 }
 
@@ -67,6 +82,11 @@ function IfWin(){
 function mistakes() {
     
 }
+function Restart(){
+
+}
 init()
-ResetbtnEl.addEventListener('click',init)
 NextbtnEl.addEventListener('click',Nextbtn)
+for(let oneElement of lettersbtnEl){
+    oneElement.addEventListener('click',Choose)
+}
