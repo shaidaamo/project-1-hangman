@@ -109,9 +109,9 @@ function mistakes() {
         MistakesEl.textContent = 'Mistakes Remining: ' + (6-MistakesNo)
     ImageEl.src = MistakesNo+'.png'
     }
-    
-    
-    
+    if(MistakesNo === 6){
+        WinMessageEl.textContent = 'You Lost. Restart The Game to Try Again'
+    }
 }
 
 function Restart(){
