@@ -8,6 +8,15 @@ h1{
     font-size: 50px;
    text-align: center;
 }
+
+#hint{
+    font-size: 20px;
+    text-align: center;
+    font-family: "Quicksand";
+    padding: 10px 10px 10px 10px;
+    color:  #0a0a0a;
+
+}
 #message{
     text-align: center;
     font-family: "Quicksand";
@@ -127,6 +136,10 @@ cursor: pointer;}
         font-size: 38px;
         margin-top: -30px;
     }
+    #hint{
+        font-size: 28px;
+        margin-top: -10px;
+    }
 
     .lett {
         width: 35px;
@@ -170,6 +183,10 @@ cursor: pointer;}
         height: 47px;
         font-size: 20px;
         margin: 2px;
+    }
+     #hint{
+        font-size: 23px;
+        margin-top: -10px;
     }
 
 
