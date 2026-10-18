@@ -8,6 +8,7 @@ const WinMessageEl = document.querySelector('#message')
 const ImageEl = document.querySelector('#image')
 const MistakesEl = document.querySelector('#guesses-number')
 const NextbtnEl = document.querySelector('#Next')
+const HintEl = document.querySelector('#hint')
 console.log(lettersbtnEl)
 console.log(ResetbtnEl)
 console.log(hiddenWordEl)
@@ -15,12 +16,14 @@ console.log(WinMessageEl)
 console.log(ImageEl)
 console.log(MistakesEl)
 console.log(NextbtnEl)
+console.log(HintEl)
 
 let winner = false
 let Index = 0
 let randomword = ''
 let Guessedletter = []
 let MistakesNo = 0
+let HintRandom = ''
 
 function init(){
     winner = false
@@ -34,6 +37,7 @@ function init(){
 
 function HiddenWord(){
     randomword = RandomWords[Index]
+    HintRandom = Hints[Index]
     if(Index> RandomWords.length){
         Index=0;
     }
@@ -42,11 +46,12 @@ function HiddenWord(){
     Guessedletter = []
     for(let i=0;i<randomword.length;i++){
       Guessedletter.push('_')
-}
+    }
     for(let i=0;i< Guessedletter.length;i++){
       hiddenWordEl.textContent += Guessedletter[i] + ' '
-}
+    }
     console.log(Guessedletter)
+    HintEl.textContent = 'Hint: ' + HintRandom
 }
 
 function Nextbtn(){
@@ -71,7 +76,7 @@ function Choose(event){
         Guessedletter[i] = letter
         Correctlet = true
         event.target.style.visibility = 'hidden'    
-        console.log(randomword[i])     
+        console.log(randomword[i])  
         }
     }
     hiddenWordEl.textContent=""
