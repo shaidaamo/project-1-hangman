@@ -1,5 +1,5 @@
 const RandomWords =['APPLE','COMPUTER','CAKE','SPRING','TEAPOT','MUSIC','TREASURE','ART','STAR','DOOR','BACKPACK','COMPASS','NOTEBOOK','PILLOW','GUITAR','PENCIEL','MOUNTAIN','AEROPLANE','FLOWER','LANTERN']
-const Hints =['A Fruit','A Device','A Dessurt','A Season','Holds Hot Liqiud','Something We Listen To','Something We Value','Something We Make','Is In The Sky','We Use It To Get In/Out','Something We Hold','Something We Use To Know The Way','Something We Write In','Something We Sleep On','Something That Makes Music','Something We Write With','Something We Climb','Travels Long Distance','A Plant','Used In The Dark']
+const Hints =['A Fruit','A Device','A Dessert','A Season','Holds Hot Liqiud','Something We Listen To','Something We Value','Something We Make','Is In The Sky','We Use It To Get In/Out','Something We Hold','Something We Use To Know The Way','Something We Write In','Something We Sleep On','Something That Makes Music','Something We Write With','Something We Climb','Travels Long Distance','A Plant','Used In The Dark']
 
 const lettersbtnEl = document.querySelectorAll('.lett')
 const ResetbtnEl = document.querySelector('#Reset')

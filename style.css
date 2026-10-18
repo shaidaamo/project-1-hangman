@@ -5,31 +5,32 @@
 h1{
     font-family: "Quicksand";
     color: #6A4C93;
-    font-size: 50px;
+    font-size: 40px;
    text-align: center;
 }
 
+
 #hint{
-    font-size: 25px;
+    font-size: 30px;
     text-align:center;
     font-family: "Quicksand";
     padding: -50px 50px 50px 50px;
-    color:  #0a0a0a;
-    margin-bottom: 10px;
-
+    color:   #503b6d;;
+    margin-bottom: 50px;
+    margin-top: 0;
 }
 #message{
     text-align: center;
     font-family: "Quicksand";
     color:  #6A4C93;
     font-size: 30px;
-
 }
 #Guess{
     text-align: center;
     font-family: "Quicksand";
     color: #6A4C93;
     font-size: 30px;
+    
 }
 img{
     margin-left: 200px;
@@ -38,10 +39,9 @@ img{
     height: 400px;
 }
 .Hidden-word{
-    font-size: 72px;
+    font-size: 50px;
     text-align: center;
     font-family: "Edu QLD Hand";
-    margin-top: -110px;
     color:  #0a0a0a;
 }
 #guesses-number{
@@ -69,18 +69,19 @@ img{
 }
 .lett:hover{
     background-color: rgb(191, 145, 194);
-cursor: pointer;
+    cursor: pointer;
 }
 body{
-    background-color: #FCE1D7;
+    background: url(./background.jpeg);
+    background-position: 100%;
+    background-size: cover;
+    border: 2px rgb(132, 94, 132) solid;
 }
 #choosed-letters{
     font-family: "Edu QLD Hand";
     font-size: 18px;
 }
-body{
-     border: 2px rgb(132, 94, 132) solid;
-}
+
 #Reset{
        background-color: rgb(116, 47, 146);
     width: 70px;
@@ -106,7 +107,7 @@ cursor: pointer;}
     border: 2px rgb(74, 27, 87) solid;
     font-size: 20px;
     font-weight: bold;
-    margin: 5px 5px 5px 5px;
+    margin: 0px 5px 5px 0px;
     transition: background-color .4s;
     font-family: "Quicksand";    
     text-align: center;
@@ -126,7 +127,7 @@ cursor: pointer;}
          font-size: 22px;
     }
     #guesses-number{
-         font-size: 16px;
+         font-size: 20px;
     }
     img {
         margin-left: 10px;
@@ -190,7 +191,5 @@ cursor: pointer;}
         font-size: 23px;
         margin-top: -10px;
     }
-
-
 }
 
