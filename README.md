@@ -1,11 +1,10 @@
 # project 1 
- The project : hangman game
-
+ The project : The Hangman Game
 
 ## technologies 
-1. html
-2. javascript
-3. css
+1. Html
+2. Javascript
+3. CSS
 
 ## Description
 

@@ -1,5 +1,6 @@
-const RandomWords =['APPLE','COMPUTER','CAKE','SPRING','TEAPOT','MUSIC','TREASURE','ART','STAR','DOOR','BACKPACK','COMPASS','NOTEBOOK','PILLOW','GUITAR','PENCIEL','MOUNTAIN','AEROPLANE','FLOWER','LANTERN']
-const Hints =['A Fruit','A Device','A Dessert','A Season','Holds Hot Liqiud','Something We Listen To','Something We Value','Something We Make','Is In The Sky','We Use It To Get In/Out','Something We Hold','Something We Use To Know The Way','Something We Write In','Something We Sleep On','Something That Makes Music','Something We Write With','Something We Climb','Travels Long Distance','A Plant','Used In The Dark']
+const RandomWords =['APPLE','COMPUTER']
+const Hints =['A Fruit','A Device']
+
 
 const lettersbtnEl = document.querySelectorAll('.lett')
 const ResetbtnEl = document.querySelector('#Reset')
@@ -33,14 +34,19 @@ let time = 60
 let stop = false
 
 function init(){
+    if(winner === true || Index === RandomWords.letter -1 || time != 60){
+        return
+    }
     winner = false
     ImageEl.src = './hangman1.png'
     MistakesEl.textContent = 'Mistakes Remianing :  6'
     WinMessageEl.textContent =''
     MistakesNo = 0
-    if(time<60){
-        return
-    }
+    clearInterval(intervalId)
+    time = 60
+    for(let Onebutton of lettersbtnEl){
+             Onebutton.style.visibility = 'visible'
+        }
     HiddenWord()
     IfWin() 
     startTime()
@@ -66,12 +72,26 @@ function HiddenWord(){
 }
 
 function Nextbtn(){
+    if(Index === RandomWords.length - 1){
+         return
+    }
+   
     if(winner === true){
+         
         Index = Index + 1 
-        for(let Onebutton of lettersbtnEl){
+        winner = false
+    ImageEl.src = './hangman1.png'
+    MistakesEl.textContent = 'Mistakes Remianing :  6'
+    WinMessageEl.textContent =''
+    MistakesNo = 0
+    clearInterval(intervalId)
+    time = 60
+    for(let Onebutton of lettersbtnEl){
              Onebutton.style.visibility = 'visible'
         }
-        init()
+    HiddenWord()
+    IfWin() 
+    startTime()
     }
     return Index
 
@@ -110,9 +130,13 @@ function IfWin(){
             winner = false
         }
     }
-    if(winner === true){
+    if(winner === true && Index != RandomWords.length -1){
         WinMessageEl.textContent = 'You Win! Press Next for the Next Word'
     }  
+    else if(winner === true && Index === RandomWords.length -1){
+        WinMessageEl.textContent = 'You Finished The Game! Press Restart to Play Again'
+    }
+
 }
 
 function mistakes() {
@@ -128,12 +152,16 @@ function mistakes() {
 }
 
 function Restart(){
-if(MistakesNo === 6 || time === 0){
+if(MistakesNo === 6 || time === 0 || Index === RandomWords.length -1){
   winner = false
   ImageEl.src = './hangman1.png'
   MistakesEl.textContent = 'Mistakes Remianing :  6'
   WinMessageEl.textContent =''
   MistakesNo = 0
+  time = 60
+  if(Index === RandomWords.length -1){
+    Index =0
+  }
 for(let Onebutton of lettersbtnEl){
     Onebutton.style.visibility = 'visible'
  }
@@ -141,9 +169,11 @@ for(let Onebutton of lettersbtnEl){
   IfWin() 
   startTime()
     }
-}
+    }
+
 let intervalId = null
 function startTime(){
+    
  intervalId = setInterval(()=>{
     if(time === 0 || MistakesNo === 6){
         clearInterval(intervalId)
