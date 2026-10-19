@@ -9,6 +9,7 @@ const ImageEl = document.querySelector('#image')
 const MistakesEl = document.querySelector('#guesses-number')
 const NextbtnEl = document.querySelector('#Next')
 const HintEl = document.querySelector('#hint')
+const StartbtnEl = document.querySelector('#start')
 console.log(lettersbtnEl)
 console.log(ResetbtnEl)
 console.log(hiddenWordEl)
@@ -17,6 +18,7 @@ console.log(ImageEl)
 console.log(MistakesEl)
 console.log(NextbtnEl)
 console.log(HintEl)
+console.log(StartbtnEl)
 
 let winner = false
 let Index = 0
@@ -63,12 +65,13 @@ function Nextbtn(){
         init()
     }
     return Index
+
 }
 
 function Choose(event){
     let letter = event.target.textContent
     let Correctlet = false
-    if(MistakesNo === 6){
+    if(MistakesNo === 6 || winner===true){
        return
     }
     for(let i=0; i<randomword.length;i++){
@@ -91,6 +94,7 @@ function Choose(event){
 }
 
 function IfWin(){
+    winner = true
     for(let i=0; i< Guessedletter.length;i++){
         if(Guessedletter[i] === '_'){
             winner = false
@@ -98,10 +102,7 @@ function IfWin(){
     }
     if(winner === true){
         WinMessageEl.textContent = 'You Win! Press Next for the Next Word'
-    }
-    else
-        {winner= true}
-    
+    }  
 }
 
 function mistakes() {
@@ -131,7 +132,7 @@ for(let Onebutton of lettersbtnEl){
     }
 }
 
-init()
+StartbtnEl.addEventListener('click',init)
 NextbtnEl.addEventListener('click',Nextbtn)
 ResetbtnEl.addEventListener('click',Restart)
 for(let oneElement of lettersbtnEl){

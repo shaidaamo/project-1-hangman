@@ -8,8 +8,6 @@ h1{
     font-size: 40px;
    text-align: center;
 }
-
-
 #hint{
     font-size: 30px;
     text-align:center;
@@ -113,6 +111,28 @@ cursor: pointer;}
     text-align: center;
 }
 #Next:hover{
+    background-color: rgb(148, 102, 162);
+cursor: pointer;}
+#start{
+    background-color: rgb(116, 47, 146);
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    color:#f8f8f9;
+    border: 2px rgb(74, 27, 87) solid;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 5px 5px 5px 5px;
+    transition: background-color .4s;
+    font-family: "Quicksand";    
+    text-align: center;
+}
+#Start{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#start:hover{
     background-color: rgb(148, 102, 162);
 cursor: pointer;}
 
