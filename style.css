@@ -78,6 +78,7 @@ img{
     background-color: rgb(191, 145, 194);
     cursor: pointer;
 }
+
 body{
     background: url(./background.jpeg);
     background-position: 100%;
@@ -114,7 +115,7 @@ cursor: pointer;}
     border: 2px rgb(74, 27, 87) solid;
     font-size: 20px;
     font-weight: bold;
-    margin: 0px 5px 5px 0px;
+    margin: 5px 5px 5px 5px;
     transition: background-color .4s;
     font-family: "Quicksand";    
     text-align: center;
@@ -122,6 +123,22 @@ cursor: pointer;}
 #Next:hover{
     background-color: rgb(148, 102, 162);
 cursor: pointer;}
+#pause{
+     background-color: rgb(116, 47, 146);
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    color:#f8f8f9;
+    border: 2px rgb(74, 27, 87) solid;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 5px 5px 5px;
+    transition: background-color .4s;
+    font-family: "Quicksand"; 
+}
+#pause:hover{
+    background-color: rgb(148, 102, 162);
+    cursor: pointer;}
 #start{
     background-color: rgb(116, 47, 146);
     width: 200px;

@@ -11,6 +11,7 @@ const NextbtnEl = document.querySelector('#Next')
 const HintEl = document.querySelector('#hint')
 const StartbtnEl = document.querySelector('#start')
 const timerEl = document.querySelector('#timer')
+const PauseEl = document.querySelector('#pause')
 console.log(lettersbtnEl)
 console.log(ResetbtnEl)
 console.log(hiddenWordEl)
@@ -20,6 +21,7 @@ console.log(MistakesEl)
 console.log(NextbtnEl)
 console.log(HintEl)
 console.log(StartbtnEl)
+console.log(PauseEl)
 
 let winner = false
 let Index = 0
@@ -28,6 +30,7 @@ let Guessedletter = []
 let MistakesNo = 0
 let HintRandom = ''
 let time = 60
+let stop = false
 
 function init(){
     winner = false
@@ -35,6 +38,9 @@ function init(){
     MistakesEl.textContent = 'Mistakes Remianing :  6'
     WinMessageEl.textContent =''
     MistakesNo = 0
+    if(time<60){
+        return
+    }
     HiddenWord()
     IfWin() 
     startTime()
@@ -74,7 +80,8 @@ function Nextbtn(){
 function Choose(event){
     let letter = event.target.textContent
     let Correctlet = false
-    if(MistakesNo === 6 || winner===true || time ===0){
+    if(MistakesNo === 6 || winner === true || time === 60 || time === 0 ||  PauseEl.textContent === 'resume'
+    ){
        return
     }
     for(let i=0; i<randomword.length;i++){
@@ -121,7 +128,7 @@ function mistakes() {
 }
 
 function Restart(){
-if(MistakesNo === 6){
+if(MistakesNo === 6 || time === 0){
   winner = false
   ImageEl.src = './hangman1.png'
   MistakesEl.textContent = 'Mistakes Remianing :  6'
@@ -132,22 +139,47 @@ for(let Onebutton of lettersbtnEl){
  }
   HiddenWord()
   IfWin() 
+  startTime()
     }
 }
+let intervalId = null
 function startTime(){
-const intervalId = setInterval(()=>{
-    if(time === 0){
+ intervalId = setInterval(()=>{
+    if(time === 0 || MistakesNo === 6){
         clearInterval(intervalId)
         WinMessageEl.textContent = 'You Lost. Restart The Game to Try Again'
+        return
+    }
+    if(winner === true){
+        clearInterval(intervalId)
+        time = 60
         return
     }
     time--
     timerEl.textContent = time
 },1000)
 }
+function Pasue(){
+    if(winner === true || MistakesNo === 6 || time === 60 ){
+        return
+    }
+    if(stop === false){
+       clearInterval(intervalId)
+        PauseEl.textContent = 'resume'
+        stop = true 
+    }
+    else if(stop === true){
+        stop = false
+        PauseEl.textContent = 'Pause'
+        startTime()
+    }
+    
+    }
+
 StartbtnEl.addEventListener('click',init)
 NextbtnEl.addEventListener('click',Nextbtn)
 ResetbtnEl.addEventListener('click',Restart)
+PauseEl.addEventListener('click',Pasue)
 for(let oneElement of lettersbtnEl){
     oneElement.addEventListener('click',Choose)
 }
