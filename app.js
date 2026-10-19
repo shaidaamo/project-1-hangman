@@ -10,6 +10,7 @@ const MistakesEl = document.querySelector('#guesses-number')
 const NextbtnEl = document.querySelector('#Next')
 const HintEl = document.querySelector('#hint')
 const StartbtnEl = document.querySelector('#start')
+const timerEl = document.querySelector('#timer')
 console.log(lettersbtnEl)
 console.log(ResetbtnEl)
 console.log(hiddenWordEl)
@@ -26,6 +27,7 @@ let randomword = ''
 let Guessedletter = []
 let MistakesNo = 0
 let HintRandom = ''
+let time = 60
 
 function init(){
     winner = false
@@ -35,6 +37,7 @@ function init(){
     MistakesNo = 0
     HiddenWord()
     IfWin() 
+    startTime()
 }
 
 function HiddenWord(){
@@ -71,7 +74,7 @@ function Nextbtn(){
 function Choose(event){
     let letter = event.target.textContent
     let Correctlet = false
-    if(MistakesNo === 6 || winner===true){
+    if(MistakesNo === 6 || winner===true || time ===0){
        return
     }
     for(let i=0; i<randomword.length;i++){
@@ -131,7 +134,17 @@ for(let Onebutton of lettersbtnEl){
   IfWin() 
     }
 }
-
+function startTime(){
+const intervalId = setInterval(()=>{
+    if(time === 0){
+        clearInterval(intervalId)
+        WinMessageEl.textContent = 'You Lost. Restart The Game to Try Again'
+        return
+    }
+    time--
+    timerEl.textContent = time
+},1000)
+}
 StartbtnEl.addEventListener('click',init)
 NextbtnEl.addEventListener('click',Nextbtn)
 ResetbtnEl.addEventListener('click',Restart)
