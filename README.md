@@ -1,9 +1,9 @@
-# Project 1
+# Project Name
 ![Project Preview](<Screanshoot 1.png>)
 
  The Project : The Hangman Game
 
-## Technologies 
+## Technologies Used
 1. Html
 2. Javascript
 3. CSS
